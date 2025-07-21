@@ -1,0 +1,18 @@
+// Condicionais
+var idade = 18;
+
+if (idade >= 18) {
+    print "Você é maior de idade";
+} else {
+    print "Você é menor de idade";
+}
+
+// Loops
+var contador = 0;
+while (contador < 5) {
+    print "Contador: " + contador;
+    contador = contador + 1;
+}
+
+// Função built-in
+print "Horário atual: " + clock();

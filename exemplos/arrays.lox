@@ -1,0 +1,13 @@
+// Exemplo de arrays (extensão)
+var numeros = [1, 2, 3, 4, 5];
+print "Array original:";
+print numeros;
+
+// Adicionar elemento
+numeros = numeros + [6];
+print "Após adicionar 6:";
+print numeros;
+
+// Acessar elementos
+print "Primeiro elemento: " + numeros[0];
+print "Último elemento: " + numeros[5];

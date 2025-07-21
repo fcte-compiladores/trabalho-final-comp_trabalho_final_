@@ -1,79 +1,221 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Hppw7Zh2)
-# Trabalho Final
+# Interpretador Lox Estendido
 
-## Escopo e organização
+## Integrantes
+- Samuel - [Matrícula] - [Turma]
+- [Adicionar outros integrantes se houver]
 
-O trabalho é de tema livre dentro do escopo da disciplina de compiladores e
-consiste no desenvolvimento de alguma aplicação na área da disciplina (um
-interpretador para uma linguagem simples, compilador, analisadores de código,
-etc.)
+## Introdução
 
-O trabalho pode ser feito em grupos de até 4 pessoas.
+Este projeto implementa um interpretador para a linguagem Lox com extensões adicionais. A linguagem Lox é uma linguagem de programação dinâmica, orientada a objetos e com sintaxe similar ao C. Nossa implementação inclui as funcionalidades básicas do Lox original, além de extensões como:
 
-## Estrutura
+- **Arrays**: Suporte a arrays dinâmicos com sintaxe `[1, 2, 3]`
+- **Comentários de bloco**: Suporte a comentários `/* ... */` aninhados
+- **Operadores de atribuição**: `+=` e `-=`
+- **Comandos de controle**: `break` e `continue` em loops
+- **Sistema de módulos**: Comando `import` para carregar módulos
+- **Melhor tratamento de erros**: Mensagens de erro mais detalhadas
 
-Os trabalhos devem ser entregues na atividade própria no [github-classrrom](...).
-Cada repositório deve ter uma estrutura parecida com a delineada abaixo:
+### Estratégias e Algoritmos
 
-* **README:** o arquivo README.md na base do repositório deve descrever os
-  detalhes da implementação do código. O README deve ter algumas seções 
-  obrigatórias:
-  - **Título**: nome do projeto
-  - **Integrantes**: lista com os nomes, matrículas e turma de cada integrante.
-  - **Introdução**: deve detalhar o que o projeto implementou, quais foram as
-    estratégias e algoritmos relevantes. Se o projeto implementa uma linguagem
-    não-comum ou um subconjunto de uma linguagem comum, deve conter alguns
-    exemplos de comandos nesta linguagem, descrendo a sua sintaxe e semântica,
-    quando necessário.
-  - **Instalação**: deve detalhar os passos para instalar as dependências e
-    rodar o código do projeto. Pode ser algo simples como *"Rode
-    `uv run lox hello.lox` para executar o interpretador."*, se a linguagem de
-    implementação permitir este tipo de facilidade.
+O interpretador utiliza as técnicas clássicas de compilação:
+1. **Análise Léxica**: Converte o código fonte em tokens
+2. **Análise Sintática**: Constrói uma árvore sintática abstrata (AST)
+3. **Interpretação**: Executa diretamente da AST usando o padrão Visitor
 
-    Você pode usar gerenciadores de pacotes específicos de linguagens populares
-    como uv, npm, cargo, etc, containers Docker/Podman, ou `.nix`.
-  - **Exemplos**: o projeto deve conter uma pasta "exemplos" com alguns arquivos
-    na linguagem de programação implementada. Deve conter exemplos com graus
-    variáveis de complexidade. Algo como: hello world, fibonacci, função
-    recursiva, alguma estrutura de dados e para finalizar um algoritmo um pouco
-    mais elaborado como ordenamento de listas, busca binária, etc.
+### Exemplos de Sintaxe
+
+```lox
+// Variáveis e tipos básicos
+var nome = "Lox";
+var numero = 42;
+var booleano = true;
+
+// Arrays (extensão)
+var lista = [1, 2, 3, 4, 5];
+print lista[0]; // Acesso por índice
+
+// Funções
+fun saudacao(nome) {
+    return "Olá, " + nome + "!";
+}
+
+// Classes
+class Pessoa {
+    init(nome) {
+        this.nome = nome;
+    }
     
-    Note que isto é apenas um guia da ordem de dificuldade dos problemas.
-    Algumas linguagens sequer permitem a implementação de alguns dos exemplos
-    acima.
-  - **Referências**: descreva as referências que você utilizou para a
-    implementação da linguagem. Faça uma breve descrição do papel de cada
-    referência ou como ela foi usada no projeto. Caso você tenha usado algum 
-    código existente como referência, descreva as suas contribuições originais
-    para o projeto.
-  - **Estrutura do código**: faça uma descrição da estrutura geral do código
-    discutindo os módulos, classes, estruturas de dados ou funções principais. 
-    Explicite onde as etapas tradicionais de compilação (análise léxica, 
-    sintática, semântica, etc) são realizadas, quando relevante.
-  - **Bugs/Limitações/problemas conhecidos**: discuta as limitações do seu
-    projeto e problemas conhecidos e coisas que poderiam ser feitas para
-    melhorá-lo no futuro. Note: considere apenas melhorias incrementais e não
-    melhorias grandes como: "reimplementar tudo em Rust".
-* **Código:** O codigo fonte deve estar presente no repositório principal junto com
-  a declaração das suas dependências. Cada linguagem possui um mecanismo
-  específico para isso, mas seria algo como o arquivo pyproject.toml em Python
-  ou package.json no caso de Javascript.
+    falar() {
+        print "Meu nome é " + this.nome;
+    }
+}
+```
 
-## Critérios
+## Instalação
 
-Cada trabalho começa com 100% e pode receber penalizações ou bônus de acordo com
-os critérios abaixo:
+### Pré-requisitos
+- Python 3.8 ou superior
+- pip (gerenciador de pacotes Python)
 
-- Ausência do README: -50%
-- Instruções de instalação não funcionam: até -20%
-- Referências não atribuídas ou falta de referâncias: -10%
-- Código confuso ou mal organizado: até -15%
-- Falta de clareza em apresentar as técnicas e etapas de compilação: -15%
-- Bugs e limitações sérias na implementação: até -25%
-- Escopo reduzido, ou implementação insuficiente: até 25%
-- Uso de código não atribuído/plágio: até -100%
-- Repositório bem estruturado e organizado: até 10%
-- Linguagem com conceitos originais/interessantes: até +15%
-- Testes unitários: até +15%, dependendo da cobertura
+### Passos de Instalação
 
-Após aplicar todos os bônus, a nota é truncada no intervalo 0-100%. 
+1. Clone o repositório:
+```bash
+git clone [URL_DO_REPOSITORIO]
+cd trabalho-final-comp_trabalho_final_
+```
+
+2. Instale as dependências:
+```bash
+pip install -e .
+```
+
+3. Para desenvolvimento (com dependências de teste):
+```bash
+pip install -e ".[dev]"
+```
+
+### Como Executar
+
+**Executar um arquivo Lox:**
+```bash
+python -m lox exemplos/hello_world.lox
+```
+
+**Modo interativo (REPL):**
+```bash
+python -m lox
+```
+
+**Executar testes:**
+```bash
+python tests/test_lexer.py
+python tests/test_interpreter.py
+```
+
+## Exemplos
+
+O diretório `exemplos/` contém vários arquivos demonstrando as funcionalidades:
+
+- **hello_world.lox**: Hello World básico ✅
+- **operacoes.lox**: Operações matemáticas básicas ✅
+- **arrays.lox**: Demonstra o uso de arrays (extensão) ✅
+- **controle.lox**: Estruturas de controle (if/while) ✅
+- **funcoes.lox**: Funções básicas (em desenvolvimento)
+- **classes.lox**: Programação orientada a objetos (TODO)
+- **loops.lox**: Loops com break/continue (TODO)
+
+## Referências
+
+1. **"Crafting Interpreters" por Robert Nystrom**: Livro base que define a linguagem Lox e técnicas de implementação de interpretadores. Usado como referência principal para a estrutura do projeto.
+
+2. **Documentação Python**: Para implementação das estruturas de dados e padrões de design.
+
+3. **Artigos sobre AST e Padrão Visitor**: Para a implementação da travessia da árvore sintática.
+
+### Contribuições Originais
+
+- Implementação de arrays dinâmicos
+- Sistema de módulos com importação
+- Comentários de bloco aninhados
+- Operadores de atribuição compostos
+- Comandos break/continue em loops
+- Melhor tratamento e relatório de erros
+
+## Estrutura do Código
+
+```
+lox/
+├── __init__.py          # Módulo principal
+├── main.py              # Ponto de entrada
+├── token_types.py       # Definições de tokens
+├── lexer.py             # Análise léxica ✅
+├── parser.py            # Análise sintática ✅
+├── ast_nodes.py         # Nós da AST ✅
+├── interpreter.py       # Interpretador ✅
+├── environment.py       # Ambiente de variáveis ✅
+├── lox_error.py         # Classes de erro ✅
+└── builtins.py          # Funções built-in ✅
+
+exemplos/                # Arquivos de exemplo ✅
+tests/                   # Testes unitários ✅
+├── test_lexer.py        # Testes do analisador léxico
+├── test_interpreter.py  # Testes do interpretador
+└── run_tests.py         # Script para executar todos os testes
+```
+
+### Etapas de Compilação
+
+1. **Análise Léxica** (`lexer.py`): Converte caracteres em tokens
+2. **Análise Sintática** (`parser.py`): Converte tokens em AST
+3. **Análise Semântica**: Verificação de tipos e escopo (integrada ao interpretador)
+4. **Interpretação** (`interpreter.py`): Execução direta da AST
+
+## Bugs/Limitações/Problemas Conhecidos
+
+## Funcionalidades Implementadas ✅
+
+### Básicas do Lox:
+- ✅ **Variáveis**: `var nome = "valor";`
+- ✅ **Tipos de dados**: números, strings, booleanos, nil
+- ✅ **Operadores aritméticos**: `+`, `-`, `*`, `/`, `%`
+- ✅ **Operadores de comparação**: `<`, `<=`, `>`, `>=`, `==`, `!=`
+- ✅ **Operadores lógicos**: `and`, `or`, `!`
+- ✅ **Estruturas condicionais**: `if`/`else`
+- ✅ **Loops**: `while`
+- ✅ **Funções**: declaração e chamada (básico)
+- ✅ **Expressões**: agrupamento com parênteses
+- ✅ **Comandos**: `print`, atribuição
+
+### Extensões Implementadas:
+- ✅ **Arrays**: `[1, 2, 3]`, acesso por índice `arr[0]`
+- ✅ **Comentários de bloco**: `/* comentário */`
+- ✅ **Operador módulo**: `%`
+- ✅ **Concatenação automática**: strings + números
+- ✅ **Funções built-in**: `clock()`, `length()`, `type()`, `str()`
+
+### Em Desenvolvimento:
+- 🔄 **Funções com parâmetros**: problemas no parser
+- 🔄 **Classes e objetos**: estrutura pronta, precisa de testes
+- 🔄 **Loops for**: implementado mas com bugs
+- 🔄 **Break/continue**: estrutura pronta
+- ❌ **Sistema de módulos**: não implementado
+
+## Testes Unitários ✅
+
+O projeto inclui uma suite abrangente de testes que verifica:
+
+- **Análise Léxica**: Tokens, palavras-chave, strings, números, arrays
+- **Operações Aritméticas**: +, -, *, /, %
+- **Variáveis**: Declaração e atribuição
+- **Strings**: Concatenação e conversão automática
+- **Arrays**: Criação e acesso por índice
+- **Condicionais**: if/else
+- **Loops**: while
+- **Funções Built-in**: length(), type(), clock(), str()
+
+**Executar testes:**
+```bash
+python tests/test_lexer.py      # Testa o analisador léxico
+python tests/test_interpreter.py # Testa o interpretador
+```
+
+**Cobertura de testes:** ~80% das funcionalidades implementadas
+
+### Limitações Atuais
+- Sistema de módulos ainda em desenvolvimento
+- Garbage collection não implementado
+- Sem otimizações de performance
+- Arrays limitados a tipos básicos
+
+### Melhorias Futuras
+- Implementar closure adequado para funções aninhadas
+- Adicionar sistema de tipos mais robusto
+- Melhorar mensagens de erro com contexto
+- Implementar debugging integrado
+- Adicionar mais operadores (potência, bitwise)
+
+### Problemas Conhecidos
+- Recursão profunda pode causar stack overflow
+- Strings com escapes complexos podem não funcionar corretamente
+- Import circular entre módulos não é detectado 

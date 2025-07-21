@@ -1,0 +1,12 @@
+// Fibonacci recursivo
+fun fibonacci(n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 2) + fibonacci(n - 1);
+}
+
+print "Fibonacci de 10:";
+var i = 0;
+while (i <= 10) {
+    print fibonacci(i);
+    i = i + 1;
+}

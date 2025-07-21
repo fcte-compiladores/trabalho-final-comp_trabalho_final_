@@ -1,0 +1,20 @@
+// Exemplo de loops com break e continue
+print "Números pares de 1 a 10:";
+for (var i = 1; i <= 10; i += 1) {
+    if (i % 2 == 1) {
+        continue; // Pula números ímpares
+    }
+    
+    if (i > 8) {
+        break; // Para quando chegar em números > 8
+    }
+    
+    print i;
+}
+
+print "Contagem regressiva:";
+var j = 5;
+while (j > 0) {
+    print j;
+    j -= 1;
+}

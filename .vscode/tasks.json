@@ -1,0 +1,18 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Test Lexer",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"-m",
+				"lox",
+				"exemplos/hello_world.lox"
+			],
+			"group": "test",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}

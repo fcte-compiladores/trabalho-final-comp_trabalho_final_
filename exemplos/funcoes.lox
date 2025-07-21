@@ -1,0 +1,14 @@
+// Função simples
+fun saudacao() {
+    print "Olá da função!";
+}
+
+saudacao();
+
+// Função com parâmetro
+fun dobrar(x) {
+    return x * 2;
+}
+
+var resultado = dobrar(5);
+print "Dobro de 5 é: " + resultado;

@@ -1,0 +1,49 @@
+// Algoritmo de ordenação bubble sort
+fun bubbleSort(arr) {
+    var n = length(arr);
+    
+    for (var i = 0; i < n - 1; i += 1) {
+        for (var j = 0; j < n - i - 1; j += 1) {
+            if (arr[j] > arr[j + 1]) {
+                // Troca elementos
+                var temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    
+    return arr;
+}
+
+// Busca binária
+fun binarySearch(arr, target) {
+    var left = 0;
+    var right = length(arr) - 1;
+    
+    while (left <= right) {
+        var mid = (left + right) / 2;
+        
+        if (arr[mid] == target) {
+            return mid;
+        } else if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    
+    return -1; // Não encontrado
+}
+
+// Teste dos algoritmos
+var numeros = [64, 34, 25, 12, 22, 11, 90];
+print "Array original:";
+print numeros;
+
+var ordenado = bubbleSort(numeros);
+print "Array ordenado:";
+print ordenado;
+
+var indice = binarySearch(ordenado, 25);
+print "Índice do número 25: " + indice;

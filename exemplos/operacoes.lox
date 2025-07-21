@@ -1,0 +1,14 @@
+// Exemplo simples de variáveis e operações
+var a = 10;
+var b = 20;
+var soma = a + b;
+print "A soma de " + a + " e " + b + " é " + soma;
+
+// Operações matemáticas
+var x = 5;
+var y = 3;
+print x + " + " + y + " = " + (x + y);
+print x + " - " + y + " = " + (x - y);
+print x + " * " + y + " = " + (x * y);
+print x + " / " + y + " = " + (x / y);
+print x + " % " + y + " = " + (x % y);

@@ -1,0 +1,26 @@
+// Exemplo de classes e herança
+class Animal {
+    init(nome) {
+        this.nome = nome;
+    }
+    
+    falar() {
+        print this.nome + " faz algum som";
+    }
+}
+
+class Cachorro {
+    init(nome) {
+        super.init(nome);
+    }
+    
+    falar() {
+        print this.nome + " faz au au!";
+    }
+}
+
+var animal = Animal("Genérico");
+animal.falar();
+
+var dog = Cachorro("Rex");
+dog.falar();
