@@ -8,6 +8,11 @@ import os
 # Adiciona o diretório raiz ao path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
+# Importa os módulos de teste
+import test_lexer
+import test_interpreter
+
+
 def run_all_tests():
     """Executa todos os testes disponíveis."""
     print("🚀 Iniciando bateria de testes do Interpretador Lox...")
@@ -16,23 +21,21 @@ def run_all_tests():
     try:
         # Testa o lexer
         print("\n📝 Testando Lexer...")
-        from tests.test_lexer import *
-        test_single_character_tokens()
-        test_string_literals()
-        test_number_literals()
-        test_identifiers_and_keywords()
-        test_arrays()
+        test_lexer.test_single_character_tokens()
+        test_lexer.test_string_literals()
+        test_lexer.test_number_literals()
+        test_lexer.test_identifiers_and_keywords()
+        test_lexer.test_arrays()
         
         # Testa o interpretador
         print("\n🔧 Testando Interpretador...")
-        from tests.test_interpreter import *
-        test_basic_arithmetic()
-        test_variables()
-        test_string_operations()
-        test_arrays()
-        test_conditionals()
-        test_loops()
-        test_builtin_functions()
+        test_interpreter.test_basic_arithmetic()
+        test_interpreter.test_variables()
+        test_interpreter.test_string_operations()
+        test_interpreter.test_arrays()
+        test_interpreter.test_conditionals()
+        test_interpreter.test_loops()
+        test_interpreter.test_builtin_functions()
         
         print("\n" + "=" * 50)
         print("🎉 TODOS OS TESTES PASSARAM! 🎉")
