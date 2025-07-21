@@ -1,8 +1,8 @@
 # Interpretador Lox Estendido
 
 ## Integrantes
-- Samuel - [Matrícula] - [Turma]
-- [Adicionar outros integrantes se houver]
+- Samuel Ribeiro da Costa  - 211031486.
+- Guilherme Coelho Mendoça  - 202016364.
 
 ## Introdução
 
